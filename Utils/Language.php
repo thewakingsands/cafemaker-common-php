@@ -69,7 +69,7 @@ class Language
         $language = substr(strtolower($language ?: self::$lang), 0, 2);
 
         if (!in_array($language, self::LANGUAGES)) {
-            $language = self::LANGUAGES[0];
+            $language = self::DEFAULT;
         }
         
         if (is_object($data)) {
