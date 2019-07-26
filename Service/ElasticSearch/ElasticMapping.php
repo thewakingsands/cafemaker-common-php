@@ -38,7 +38,7 @@ class ElasticMapping
 
     const STRING = [
         'type' => 'text',
-        'analyzer' => 'custom_string_search_basic',
+        'analyzer' => 'standard',
     ];
 
     const INTEGER = [
