@@ -10,6 +10,7 @@ class Mog
 {
     const ENDPOINT           = 'https://mog.xivapi.com';
     const ENDPOINT_NOTIFY    = '/mog/notify';
+    const ENDPOINT_DM        = '/mog/dm';
     const ENDPOINT_IS_PATRON = '/users/patreon-tier';
     const METHOD_POST        = 'POST';
     const METHOD_GET         = 'GET';
@@ -45,6 +46,18 @@ class Mog
     {
         $this->send(self::METHOD_POST, self::ENDPOINT_NOTIFY, [
             'channel' => $channel,
+            'content' => $content,
+            'embed' => $embed
+        ]);
+    }
+
+    /**
+     * Post a direct message via mog
+     */
+    public function sendDirectMessage(string $userId = null, string $content = null, array $embed = null)
+    {
+        $this->send(self::METHOD_POST, self::ENDPOINT_DM, [
+            'user_id' => $userId,
             'content' => $content,
             'embed' => $embed
         ]);

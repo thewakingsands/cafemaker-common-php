@@ -11,11 +11,6 @@ class Discord
         return self::getClass(__METHOD__, Mog::class);
     }
 
-    public static function seraymeric(): SerAymeric
-    {
-        return self::getClass(__METHOD__, SerAymeric::class);
-    }
-
     /**
      * Access a discord bot
      */

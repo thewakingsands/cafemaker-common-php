@@ -6,8 +6,8 @@ use Elasticsearch\ClientBuilder;
 
 class ElasticSearch
 {
-    const NUMBER_OF_SHARDS = 3;
-    const NUMBER_OF_REPLICAS = 1;
+    const NUMBER_OF_SHARDS = 1;
+    const NUMBER_OF_REPLICAS = 0;
     const MAX_RESULT_WINDOW = 150000;
     const MAX_BULK_DOCUMENTS = 200;
     const MAX_FIELDS = 100000;
@@ -258,6 +258,13 @@ class ElasticSearch
             'index' => $index,
             'type'  => $type,
             'body'  => $query
+        ]);
+    }
+
+    public function hasIndex(string $index)
+    {
+        return $this->client->indices()->exists([
+            'index' => $index
         ]);
     }
 }

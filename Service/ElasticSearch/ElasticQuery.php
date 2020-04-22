@@ -260,6 +260,18 @@ class ElasticQuery
         return $this;
     }
 
+    public function excludeTerm(string $field, string $value): self
+    {
+        $this->filters[] = [
+            'not' => [
+                'term' => [
+                    $field => strtolower($value),
+                ]
+            ]
+        ];
+        return $this;
+    }
+
     public function filterTerms(string $field, array $values): self
     {
         $this->filters[] = [
